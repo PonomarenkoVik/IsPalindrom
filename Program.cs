@@ -11,13 +11,11 @@ namespace CheckStringByPal
         static void Main(string[] args)
         {
             Validator val = new Validator();
-            string str = "";
-            string str1 = "g";
+            string str = "e5fj33gf44dvbbttvdfghhjf5e";
             string pal = "34th";
-            int numCharPal;
-            bool result = val.CheckStringByPal(str, pal, out numCharPal);
+            bool result = val.CheckStringByPal(str, pal);
 
-            Console.WriteLine(" String  -  {0}\n Noise  -  {1}\n Number of noise char  -  {2} \n Result  - {3}", str, pal, numCharPal, result);
+            Console.WriteLine(" String  -  {0}\n Noise  -  {1} \n Result  - {3}", str, pal, result);
             Console.ReadLine();
         }
     }
