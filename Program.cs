@@ -15,7 +15,7 @@ namespace CheckStringByPal
             string pal = "34th";
             bool result = val.CheckStringByPal(str, pal);
 
-            Console.WriteLine(" String  -  {0}\n Noise  -  {1} \n Result  - {3}", str, pal, result);
+            Console.WriteLine(" String  -  {0}\n Noise  -  {1} \n Result  - {2}", str, pal, result);
             Console.ReadLine();
         }
     }

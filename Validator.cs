@@ -8,11 +8,11 @@ namespace CheckStringByPal
 {
     class Validator
     {
-        public bool CheckStringByPal(string str, string pal)
+        public bool CheckStringByPal(string pal, string noise)
         {
             int numNoiseChar = 0;
 
-            if (str == null)
+            if (pal == null)
             {
                 return false;
             }
@@ -20,24 +20,24 @@ namespace CheckStringByPal
             bool result = true;
             
             int leftIndex = 0;
-            int rightIndex = str.Length - 1;
+            int rightIndex = pal.Length - 1;
             while (leftIndex < rightIndex)
             {
-                if (IsNoise(str[leftIndex], pal))
+                if (IsNoise(pal[leftIndex], noise))
                 {
                     numNoiseChar++;
                     leftIndex++;
                     continue;
                 }
 
-                if (IsNoise(str[rightIndex], pal))
+                if (IsNoise(pal[rightIndex], noise))
                 {
                     numNoiseChar++;
                     rightIndex--;
                     continue;
                 }
 
-                if (str[leftIndex] != str[rightIndex])
+                if (pal[leftIndex] != pal[rightIndex])
                 {
                     result = false;
                     break;
@@ -47,7 +47,7 @@ namespace CheckStringByPal
                 rightIndex--;
             }
                
-                if (numNoiseChar == str.Length)
+                if (numNoiseChar == pal.Length)
                 {
                     result = false;
                 }               
@@ -55,20 +55,18 @@ namespace CheckStringByPal
         }
 
 
-
-
-        private bool IsNoise(char ch, string pal)
+        private bool IsNoise(char ch, string noise)
         {
-            if ((pal == null) && (pal == ""))
+            if ((noise == null) || (noise == ""))
             {
                 return false;
             }
 
             bool result = false;
 
-            for (int i = 0; i < pal.Length; i++)
+            foreach (var palChar in noise)
             {
-                if (ch == pal[i])
+                if (ch == palChar)
                 {
                     result = true;
                     break;
